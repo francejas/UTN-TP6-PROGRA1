@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define DIMENSION 30
+
+typedef struct{
+    int matricula;
+    char nombre[30];
+    char genero; //m, f
+} stAlumno;
+
+int main()
+{
+    stAlumno Alumno;
+
+    cargarArregloStruct(Alumno);
+
+    mostrarAlumnos(Alumno,i);
+
+    return 0;
+}
+
+int cargarArregloStruct(stAlumno Alumno[], int dimension) {
+
+    int i = 0;
+    char control='s';
+
+    while (i<dimension && control =='s') {
+
+        printf("Ingrese nombre: ");
+        fflush(stdin);
+        scanf("%s",&Alumno[i].nombre);
+
+        printf("Ingrese matricula: ");
+        fflush(stdin);
+        scanf("%d",&Alumno[i].matricula);
+
+        printf("Ingrese genero: ");
+        fflush(stdin);
+        scanf("%c",&Alumno[i].genero);
+
+        i++;
+
+        printf("Desea agregar otro alumno?");
+        fflush(stdin);
+        scanf("%c",&control);
+
+    }
+    return i; //retorno de los validos
+}
